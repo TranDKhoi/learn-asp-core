@@ -1,15 +1,19 @@
 ﻿using AutoMapper;
+using LearnASP.Attributes;
 using LearnASP.Core.Contracts;
 using LearnASP.Dtos;
 using LearnASP.Dtos.Category;
 using LearnASP.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace LearnASP.Controllers
 {
     [Route("api/category")]
     [ApiController]
+    [Protect]
     public class CategoryController : ControllerBase
     {
         private readonly IMapper _mapper;

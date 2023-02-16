@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LearnASP.Dtos.Category;
 using LearnASP.Dtos.Product;
+using LearnASP.Dtos.User;
 using LearnASP.Models;
 
 namespace LearnASP.Profiles
@@ -14,6 +15,9 @@ namespace LearnASP.Profiles
 
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
+
+            CreateMap<User, UserDto>();
+            CreateMap<UserDto, User>();
         }
     }
 }

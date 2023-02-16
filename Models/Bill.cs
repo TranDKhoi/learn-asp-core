@@ -16,14 +16,14 @@ namespace LearnASP.Models
         public DateTime createdAt { get; set; }
         public BillStatus status { get; set; }
         public Guid buyerId { get; set; }
-        public User buyer { get; set; }
+        public User? buyer { get; set; }
         public double totalPrice { get; set; }
         public int totalQuantity { get; set; }
         public ICollection<BillDetail> billDetails { get; set; }
 
         public Bill()
         {
-            buyer = new User();
+            id = Guid.NewGuid();
             billDetails = new List<BillDetail>();
         }
     }
@@ -32,7 +32,6 @@ namespace LearnASP.Models
     {
         public void Configure(EntityTypeBuilder<Bill> builder)
         {
-            builder.HasKey(x => x.id);
             builder.HasOne(b => b.buyer).WithMany(b => b.bills).HasForeignKey(b => b.buyerId);
             builder.Property(x => x.status).IsRequired().HasDefaultValue(BillStatus.New);
             builder.Property(x => x.createdAt).IsRequired().HasDefaultValue(DateTime.UtcNow);

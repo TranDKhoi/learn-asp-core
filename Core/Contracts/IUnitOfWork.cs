@@ -4,5 +4,6 @@
     {
         ICategoryRepo Category { get; }
         IProductRepo Product { get; }
+        IUserRepo User { get; }
     }
 }
